@@ -15,7 +15,7 @@
 4. [Uso de Genéricos](#4-uso-de-genéricos)
 5. [Principios de Programación Orientada a Objetos](#5-principios-de-programación-orientada-a-objetos)
 6. [Manejo de Errores](#6-manejo-de-errores)
-7. [Interfaz Gráfica (Puntos Extra)](#7-interfaz-gráfica)
+7. [Interfaz Gráfica](#7-interfaz-gráfica)
 8. [Ejecuciones del Programa](#8-ejecuciones-del-programa)
 9. [Estructura del Proyecto](#9-estructura-del-proyecto)
 
@@ -426,10 +426,10 @@ La interfaz utiliza un `BorderLayout` con tres zonas:
 
 ### Actualización Automática
 
-Un `javax.swing.Timer` con intervalo de 2 segundos verifica periódicamente si algún trabajo programado debe moverse a la cola activa:
+Un `javax.swing.Timer` con intervalo de 10 minnutos verifica periódicamente si algún trabajo programado debe moverse a la cola activa:
 
 ```java
-Timer timer = new Timer(2000, (ActionEvent e) -> {
+Timer timer = new Timer(600000, (ActionEvent e) -> {
     gestor.verificarProgramados();
     updateLists();
 });
