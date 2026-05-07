@@ -1,0 +1,37 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore compiled Java class files
+*.class
+#ignore .bat files
+*.bat
+
+# Archivos del sistema operativo
+Thumbs.db
+.DS_Store
+
+# Carpetas de construcción específicas de módulos (por si acaso)
+app/build/
+/build/
+
+# Archivos de Visual Studio Code
+.vscode/
+
+# Archivos de IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Archivos de Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Archivos temporales o de logs
+*.log
+*.tmp
+
