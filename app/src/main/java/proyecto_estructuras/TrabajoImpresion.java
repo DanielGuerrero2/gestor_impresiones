@@ -7,14 +7,21 @@ import java.util.Objects;
 /**
  * Representa un trabajo de impresión dentro del sistema de gestión.
  * <p>
- * Cada trabajo tiene un identificador único auto-generado, un nombre de documento,
- * un nivel de prioridad ({@link Prioridad}) y opcionalmente una fecha/hora programada.
- * Implementa {@link Comparable} para permitir el ordenamiento automático por prioridad
+ * Cada trabajo tiene un identificador único auto-generado, un nombre de
+ * documento,
+ * un nivel de prioridad ({@link Prioridad}) y opcionalmente una fecha/hora
+ * programada.
+ * Implementa {@link Comparable} para permitir el ordenamiento automático por
+ * prioridad
  * dentro de una {@link java.util.PriorityQueue}.
  * </p>
  *
- * <p><b>Inmutabilidad:</b> Los objetos de esta clase son efectivamente inmutables después
- * de su construcción (no exponen setters), lo que garantiza consistencia en las colas.</p>
+ * <p>
+ * <b>Inmutabilidad:</b> Los objetos de esta clase son efectivamente inmutables
+ * después
+ * de su construcción (no exponen setters), lo que garantiza consistencia en las
+ * colas.
+ * </p>
  *
  * @see GestorImpresion
  * @see Prioridad
@@ -34,13 +41,14 @@ public class TrabajoImpresion implements Comparable<TrabajoImpresion> {
     private Prioridad prioridad;
 
     /**
-     * Enumeración que define los niveles de prioridad para los trabajos de impresión.
+     * Enumeración que define los niveles de prioridad para los trabajos de
+     * impresión.
      * <p>
      * El orden de prioridad de mayor a menor es:
      * <ol>
-     *   <li>{@link #GERENCIA} — Prioridad máxima (valor 3)</li>
-     *   <li>{@link #URGENTE} — Prioridad media (valor 2)</li>
-     *   <li>{@link #NORMAL} — Prioridad baja (valor 1)</li>
+     * <li>{@link #GERENCIA} — Prioridad máxima (valor 3)</li>
+     * <li>{@link #URGENTE} — Prioridad media (valor 2)</li>
+     * <li>{@link #NORMAL} — Prioridad baja (valor 1)</li>
      * </ol>
      * </p>
      */
@@ -53,17 +61,24 @@ public class TrabajoImpresion implements Comparable<TrabajoImpresion> {
         NORMAL
     }
 
-    /** Fecha y hora programada para la impresión; {@code null} si el trabajo es inmediato. */
+    /**
+     * Fecha y hora programada para la impresión; {@code null} si el trabajo es
+     * inmediato.
+     */
     private LocalDateTime fechaHoraProgramada;
 
     /**
      * Crea un nuevo trabajo de impresión con fecha/hora programada.
      *
-     * @param nombreDocumento     nombre del documento a imprimir (no puede ser nulo ni vacío)
+     * @param nombreDocumento     nombre del documento a imprimir (no puede ser nulo
+     *                            ni vacío)
      * @param prioridad           nivel de prioridad del trabajo (no puede ser nulo)
-     * @param fechaHoraProgramada fecha/hora en que el trabajo se activará; {@code null} para inmediato
-     * @throws NullPointerException     si {@code nombreDocumento} o {@code prioridad} son nulos
-     * @throws IllegalArgumentException si {@code nombreDocumento} está vacío o contiene solo espacios
+     * @param fechaHoraProgramada fecha/hora en que el trabajo se activará;
+     *                            {@code null} para inmediato
+     * @throws NullPointerException     si {@code nombreDocumento} o
+     *                                  {@code prioridad} son nulos
+     * @throws IllegalArgumentException si {@code nombreDocumento} está vacío o
+     *                                  contiene solo espacios
      */
     public TrabajoImpresion(String nombreDocumento, Prioridad prioridad, LocalDateTime fechaHoraProgramada) {
         Objects.requireNonNull(nombreDocumento, "El nombre del documento no puede ser nulo");
@@ -81,10 +96,13 @@ public class TrabajoImpresion implements Comparable<TrabajoImpresion> {
     /**
      * Crea un nuevo trabajo de impresión inmediato (sin programación).
      *
-     * @param nombreDocumento nombre del documento a imprimir (no puede ser nulo ni vacío)
+     * @param nombreDocumento nombre del documento a imprimir (no puede ser nulo ni
+     *                        vacío)
      * @param prioridad       nivel de prioridad del trabajo (no puede ser nulo)
-     * @throws NullPointerException     si {@code nombreDocumento} o {@code prioridad} son nulos
-     * @throws IllegalArgumentException si {@code nombreDocumento} está vacío o contiene solo espacios
+     * @throws NullPointerException     si {@code nombreDocumento} o
+     *                                  {@code prioridad} son nulos
+     * @throws IllegalArgumentException si {@code nombreDocumento} está vacío o
+     *                                  contiene solo espacios
      */
     public TrabajoImpresion(String nombreDocumento, Prioridad prioridad) {
         this(nombreDocumento, prioridad, null);
@@ -129,7 +147,8 @@ public class TrabajoImpresion implements Comparable<TrabajoImpresion> {
     /**
      * Indica si el trabajo fue programado para una hora futura.
      *
-     * @return {@code true} si el trabajo tiene una fecha programada; {@code false} si es inmediato
+     * @return {@code true} si el trabajo tiene una fecha programada; {@code false}
+     *         si es inmediato
      */
     public boolean esProgramado() {
         return fechaHoraProgramada != null;
@@ -138,7 +157,8 @@ public class TrabajoImpresion implements Comparable<TrabajoImpresion> {
     /**
      * Compara este trabajo con otro por prioridad para el ordenamiento en la cola.
      * <p>
-     * El orden es descendente: los trabajos con mayor prioridad (GERENCIA) se consideran
+     * El orden es descendente: los trabajos con mayor prioridad (GERENCIA) se
+     * consideran
      * "menores" para que la {@link java.util.PriorityQueue} los coloque al frente.
      * </p>
      *
@@ -159,7 +179,8 @@ public class TrabajoImpresion implements Comparable<TrabajoImpresion> {
      * @return el valor numérico: GERENCIA=3, URGENTE=2, NORMAL=1, null/default=0
      */
     private int obtenerValorPrioridad(Prioridad prioridad) {
-        if (prioridad == null) return 0;
+        if (prioridad == null)
+            return 0;
         switch (prioridad) {
             case GERENCIA:
                 return 3;

@@ -8,16 +8,24 @@ import java.util.*;
  * <p>
  * Administra dos estructuras de datos principales:
  * <ul>
- *   <li>{@link PriorityQueue}{@code <TrabajoImpresion>} — <b>Cola activa:</b> almacena los trabajos
- *       listos para imprimir, ordenados automáticamente por prioridad (GERENCIA > URGENTE > NORMAL).</li>
- *   <li>{@link ArrayList}{@code <TrabajoImpresion>} — <b>Lista de programados:</b> almacena trabajos
- *       que aún no han alcanzado su hora programada.</li>
+ * <li>{@link PriorityQueue}{@code <TrabajoImpresion>} — <b>Cola activa:</b>
+ * almacena los trabajos
+ * listos para imprimir, ordenados automáticamente por prioridad (GERENCIA >
+ * URGENTE > NORMAL).</li>
+ * <li>{@link ArrayList}{@code <TrabajoImpresion>} — <b>Lista de
+ * programados:</b> almacena trabajos
+ * que aún no han alcanzado su hora programada.</li>
  * </ul>
  * </p>
  *
- * <p><b>Patrón de uso:</b> Los trabajos inmediatos entran directamente a la cola activa.
- * Los trabajos programados se almacenan en la lista de espera y se mueven automáticamente
- * a la cola activa cuando se invoca {@link #verificarProgramados()} y su hora ha llegado.</p>
+ * <p>
+ * <b>Patrón de uso:</b> Los trabajos inmediatos entran directamente a la cola
+ * activa.
+ * Los trabajos programados se almacenan en la lista de espera y se mueven
+ * automáticamente
+ * a la cola activa cuando se invoca {@link #verificarProgramados()} y su hora
+ * ha llegado.
+ * </p>
  *
  * @see TrabajoImpresion
  * @see MainFrame
@@ -67,7 +75,8 @@ public class GestorImpresion {
     /**
      * Programa un trabajo de impresión para una fecha/hora futura.
      * <p>
-     * El trabajo se almacena en la lista de programados y permanecerá allí hasta que
+     * El trabajo se almacena en la lista de programados y permanecerá allí hasta
+     * que
      * {@link #verificarProgramados()} detecte que su hora ha llegado.
      * </p>
      *
@@ -85,7 +94,8 @@ public class GestorImpresion {
     }
 
     /**
-     * Extrae e imprime el siguiente trabajo de la cola activa (el de mayor prioridad).
+     * Extrae e imprime el siguiente trabajo de la cola activa (el de mayor
+     * prioridad).
      * <p>
      * Utiliza {@link PriorityQueue#poll()} que retorna y elimina el elemento con
      * mayor prioridad en O(log n).
@@ -108,7 +118,8 @@ public class GestorImpresion {
      * <p>
      * Recorre la lista de programados y mueve a la cola activa aquellos trabajos
      * cuya fecha/hora programada ya ha pasado o es igual al momento actual.
-     * Si la cola activa está vacía, mueve todos los programados independientemente de la hora.
+     * Si la cola activa está vacía, mueve todos los programados independientemente
+     * de la hora.
      * </p>
      */
     public void verificarProgramados() {
@@ -171,7 +182,8 @@ public class GestorImpresion {
     /**
      * Indica si hay trabajos pendientes en la cola activa.
      *
-     * @return {@code true} si la cola activa no está vacía; {@code false} en caso contrario
+     * @return {@code true} si la cola activa no está vacía; {@code false} en caso
+     *         contrario
      */
     public boolean hayTrabajosActivos() {
         return !colaActiva.isEmpty();
@@ -180,7 +192,8 @@ public class GestorImpresion {
     /**
      * Retorna una copia ordenada de los trabajos en la cola activa.
      * <p>
-     * Se retorna una <b>copia defensiva</b> para proteger la integridad de la cola interna.
+     * Se retorna una <b>copia defensiva</b> para proteger la integridad de la cola
+     * interna.
      * </p>
      *
      * @return lista de trabajos activos ordenados por prioridad descendente
