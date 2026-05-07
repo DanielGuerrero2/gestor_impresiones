@@ -9,20 +9,27 @@ import java.util.List;
 /**
  * Ventana principal de la interfaz gráfica del Sistema de Gestión de Impresión.
  * <p>
- * Extiende {@link JFrame} para proporcionar una interfaz visual interactiva que permite:
+ * Extiende {@link JFrame} para proporcionar una interfaz visual interactiva que
+ * permite:
  * <ul>
- *   <li>Enviar trabajos de impresión inmediatos a la cola activa.</li>
- *   <li>Programar trabajos para una fecha/hora futura.</li>
- *   <li>Imprimir el siguiente trabajo de mayor prioridad.</li>
- *   <li>Visualizar en tiempo real el estado de las colas (activa y programados).</li>
+ * <li>Enviar trabajos de impresión inmediatos a la cola activa.</li>
+ * <li>Programar trabajos para una fecha/hora futura.</li>
+ * <li>Imprimir el siguiente trabajo de mayor prioridad.</li>
+ * <li>Visualizar en tiempo real el estado de las colas (activa y
+ * programados).</li>
  * </ul>
  * </p>
  *
- * <p><b>Layout:</b> Utiliza un {@link BorderLayout} con tres zonas:
- * NORTH (formulario), CENTER (listas de colas), SOUTH (botón de impresión).</p>
+ * <p>
+ * <b>Layout:</b> Utiliza un {@link BorderLayout} con tres zonas:
+ * NORTH (formulario), CENTER (listas de colas), SOUTH (botón de impresión).
+ * </p>
  *
- * <p><b>Timer:</b> Un {@link Timer} con intervalo de 2 segundos verifica periódicamente
- * si algún trabajo programado debe moverse a la cola activa.</p>
+ * <p>
+ * <b>Timer:</b> Un {@link Timer} con intervalo de 2 segundos verifica
+ * periódicamente
+ * si algún trabajo programado debe moverse a la cola activa.
+ * </p>
  *
  * @see GestorImpresion
  * @see TrabajoImpresion
@@ -44,7 +51,10 @@ public class MainFrame extends JFrame {
     /** Selector desplegable para elegir el nivel de prioridad. */
     private JComboBox<TrabajoImpresion.Prioridad> priorityBox;
 
-    /** Spinner numérico para configurar el retraso en segundos (para trabajos programados). */
+    /**
+     * Spinner numérico para configurar el retraso en segundos (para trabajos
+     * programados).
+     */
     private JSpinner delaySpinner;
 
     /**
@@ -67,7 +77,7 @@ public class MainFrame extends JFrame {
         initUI();
 
         // Timer to update queue from scheduled
-        Timer timer = new Timer(2000, (ActionEvent e) -> {
+        Timer timer = new Timer(600000, (ActionEvent e) -> {
             gestor.verificarProgramados();
             updateLists();
         });
@@ -79,11 +89,12 @@ public class MainFrame extends JFrame {
      * <p>
      * Crea tres paneles principales:
      * <ul>
-     *   <li><b>Panel superior (NORTH):</b> Formulario con campo de documento,
-     *       selector de prioridad, spinner de retraso y botones de acción.</li>
-     *   <li><b>Panel central (CENTER):</b> Dos listas lado a lado mostrando
-     *       la cola activa y los trabajos programados.</li>
-     *   <li><b>Panel inferior (SOUTH):</b> Botón para imprimir el siguiente trabajo.</li>
+     * <li><b>Panel superior (NORTH):</b> Formulario con campo de documento,
+     * selector de prioridad, spinner de retraso y botones de acción.</li>
+     * <li><b>Panel central (CENTER):</b> Dos listas lado a lado mostrando
+     * la cola activa y los trabajos programados.</li>
+     * <li><b>Panel inferior (SOUTH):</b> Botón para imprimir el siguiente
+     * trabajo.</li>
      * </ul>
      * </p>
      */
@@ -170,7 +181,8 @@ public class MainFrame extends JFrame {
     /**
      * Programa un trabajo de impresión para ser activado después de un retraso.
      * <p>
-     * Valida que el campo de documento no esté vacío y que el retraso sea mayor a 0.
+     * Valida que el campo de documento no esté vacío y que el retraso sea mayor a
+     * 0.
      * El retraso se multiplica por 3600 para convertirlo a la unidad esperada.
      * Muestra diálogos de error si alguna validación falla.
      * </p>
@@ -236,4 +248,3 @@ public class MainFrame extends JFrame {
         }
     }
 }
-

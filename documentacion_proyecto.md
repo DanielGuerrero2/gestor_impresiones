@@ -426,10 +426,10 @@ La interfaz utiliza un `BorderLayout` con tres zonas:
 
 ### Actualización Automática
 
-Un `javax.swing.Timer` con intervalo de 2 segundos verifica periódicamente si algún trabajo programado debe moverse a la cola activa:
+Un `javax.swing.Timer` con intervalo de 10 minutos verifica periódicamente si algún trabajo programado debe moverse a la cola activa:
 
 ```java
-Timer timer = new Timer(2000, (ActionEvent e) -> {
+Timer timer = new Timer(600000, (ActionEvent e) -> {
     gestor.verificarProgramados();
     updateLists();
 });
