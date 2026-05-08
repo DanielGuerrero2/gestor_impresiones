@@ -67,7 +67,7 @@ public class MainFrame extends JFrame {
         initUI();
 
         // Timer to update queue from scheduled
-        Timer timer = new Timer(2000, (ActionEvent e) -> {
+        Timer timer = new Timer(600000, (ActionEvent e) -> {
             gestor.verificarProgramados();
             updateLists();
         });
