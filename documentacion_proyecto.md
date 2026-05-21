@@ -15,7 +15,7 @@
 4. [Uso de Genéricos](#4-uso-de-genéricos)
 5. [Principios de Programación Orientada a Objetos](#5-principios-de-programación-orientada-a-objetos)
 6. [Manejo de Errores](#6-manejo-de-errores)
-7. [Interfaz Gráfica (Puntos Extra)](#7-interfaz-gráfica)
+7. [Interfaz Gráfica](#7-interfaz-gráfica)
 8. [Ejecuciones del Programa](#8-ejecuciones-del-programa)
 9. [Estructura del Proyecto](#9-estructura-del-proyecto)
 
