@@ -111,7 +111,7 @@ public class MainFrame extends JFrame {
         priorityBox = new JComboBox<>(TrabajoImpresion.Prioridad.values());
         inputPanel.add(priorityBox);
 
-        inputPanel.add(new JLabel("Retraso (seg):"));
+        inputPanel.add(new JLabel("Retraso (hrs):"));
         // el JSpinner es para que el usuario pueda elegir el tiempo que quiere esperar
         // antes de que se imprima el documento
         // para trasformarlo en hora se multiplica por 3600
