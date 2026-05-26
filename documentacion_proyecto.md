@@ -600,3 +600,8 @@ proyecto_estructuras/
 ## Créditos
 
 Proyecto desarrollado como parte del curso de **Estructuras de Datos**, demostrando el uso práctico de colas de prioridad, listas, genéricos, programación orientada a objetos y una interfaz gráfica interactiva.
+Los integrantes son
+Daniel Eduardo Reza Guerrero
+Francisco Alfredo Vizcarra Robles
+Edgar Iván Díaz Pacheco
+Diego Armendariz López
